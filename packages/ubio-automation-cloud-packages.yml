@@ -1,0 +1,96 @@
+generated: '2026-07-21'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=automationcloud
+packages:
+  - language: javascript
+    registry: npm
+    name: "@automationcloud/client"
+    url: https://www.npmjs.com/package/@automationcloud/client
+    install: npm install @automationcloud/client
+    official: true
+    description: JavaScript/TypeScript Client Library for Automation Cloud API
+    repository: https://github.com/automationcloud/client-javascript
+  - language: javascript
+    registry: npm
+    name: "@automationcloud/robot"
+    url: https://www.npmjs.com/package/@automationcloud/robot
+    install: npm install @automationcloud/robot
+    official: true
+    description: API for running scripts on Automation Cloud (deprecated in favor of @automationcloud/client)
+    repository: https://github.com/automationcloud/robot
+  - language: javascript
+    registry: npm
+    name: "@automationcloud/cloud-robot"
+    url: https://www.npmjs.com/package/@automationcloud/cloud-robot
+    install: npm install @automationcloud/cloud-robot
+    official: true
+    description: Client library for running scripts using Automation Cloud API
+  - language: javascript
+    registry: npm
+    name: "@automationcloud/local-robot"
+    url: https://www.npmjs.com/package/@automationcloud/local-robot
+    install: npm install @automationcloud/local-robot
+    official: true
+    description: API for running automation scripts locally
+  - language: javascript
+    registry: npm
+    name: "@automationcloud/engine"
+    url: https://www.npmjs.com/package/@automationcloud/engine
+    install: npm install @automationcloud/engine
+    official: true
+    description: Engine for running Automation Scripts
+    repository: https://github.com/ubio/engine
+  - language: javascript
+    registry: npm
+    name: "@automationcloud/cdp"
+    url: https://www.npmjs.com/package/@automationcloud/cdp
+    install: npm install @automationcloud/cdp
+    official: true
+    description: Chrome DevTools Protocol Driver
+  - language: javascript
+    registry: npm
+    name: "@automationcloud/worker"
+    url: https://www.npmjs.com/package/@automationcloud/worker
+    install: npm install @automationcloud/worker
+    official: true
+    description: UBIO Automation Worker
+  - language: javascript
+    registry: npm
+    name: "@ubio/protocol"
+    url: https://www.npmjs.com/package/@ubio/protocol
+    install: npm install @ubio/protocol
+    official: true
+    description: ubio Automation Protocol (domain schemas for inputs/outputs)
+    repository: https://github.com/ubio/protocol
+  - language: javascript
+    registry: npm
+    name: "@ubio/framework"
+    url: https://www.npmjs.com/package/@ubio/framework
+    install: npm install @ubio/framework
+    official: true
+    description: ubio Microservices Framework
+    repository: https://github.com/ubio/framework
+  - language: javascript
+    registry: npm
+    name: "@ubio/client-library"
+    url: https://www.npmjs.com/package/@ubio/client-library
+    install: npm install @ubio/client-library
+    official: true
+    description: JavaScript SDK for integrating with ubio
+    repository: https://github.com/ubio/client-library-javascript
+  - language: javascript
+    registry: npm
+    name: "@ubio/sdk"
+    url: https://www.npmjs.com/package/@ubio/sdk
+    install: npm install @ubio/sdk
+    official: true
+    description: ubio sdk application bundle (prototype)
+    repository: https://github.com/ubio/sdk
+  - language: javascript
+    registry: npm
+    name: "@ubio/request"
+    url: https://www.npmjs.com/package/@ubio/request
+    install: npm install @ubio/request
+    official: true
+    description: HTTP request client used across ubio services
+    repository: https://github.com/ubio/request

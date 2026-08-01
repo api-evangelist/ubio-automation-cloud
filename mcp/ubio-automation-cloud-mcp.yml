@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: https://github.com/automationcloud/client-javascript/blob/master/src/main/ac-api.ts
+notes: No official UBIO / Automation Cloud MCP server was found on npm, the GitHub
+  orgs (ubio, automationcloud), or the provider's sites. This candidate tool list
+  is derived from the REST operations used by the official JavaScript client library
+  (no OpenAPI is published; docs.automationcloud.net is offline).
+server:
+  name: ubio-automation-cloud
+  transport: http
+tools:
+- name: create_job
+  description: Create and start an automation job on a service (POST /jobs)
+  source_operation: POST /jobs
+- name: get_job
+  description: Retrieve an automation job by id (GET /jobs/{jobId})
+  source_operation: GET /jobs/{jobId}
+- name: get_job_end_user
+  description: Retrieve the end-user attached to a job (GET /jobs/{jobId}/end-user)
+  source_operation: GET /jobs/{jobId}/end-user
+- name: list_job_events
+  description: Poll lifecycle events for a job (GET /jobs/{jobId}/events)
+  source_operation: GET /jobs/{jobId}/events
+- name: get_job_output
+  description: Retrieve a single job output by key (GET /jobs/{jobId}/outputs/{key})
+  source_operation: GET /jobs/{jobId}/outputs/{key}
+- name: list_job_outputs
+  description: Retrieve all outputs emitted by a job (GET /jobs/{jobId}/outputs)
+  source_operation: GET /jobs/{jobId}/outputs
+- name: submit_job_input
+  description: Submit a deferred input to a running job (POST /jobs/{jobId}/inputs)
+  source_operation: POST /jobs/{jobId}/inputs
+- name: cancel_job
+  description: Cancel a running job (POST /jobs/{jobId}/cancel)
+  source_operation: POST /jobs/{jobId}/cancel
+- name: query_previous_job_outputs
+  description: Query outputs of previous jobs on a service (POST /services/{serviceId}/previous-job-outputs)
+  source_operation: POST /services/{serviceId}/previous-job-outputs
+- name: get_tds
+  description: Retrieve a 3-D Secure challenge object (GET /3d-secure/{tdsId})
+  source_operation: GET /3d-secure/{tdsId}

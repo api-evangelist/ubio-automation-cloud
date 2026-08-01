@@ -1,0 +1,112 @@
+generated: '2026-07-21'
+method: searched
+source: https://protocol.automationcloud.net/schema.json
+format: custom
+envelope:
+  description: Automation Cloud API errors are returned as a JSON object envelope
+    (observed live on https://api.automationcloud.net/).
+  fields:
+    object: always "error"
+    code: machine-readable error code in PascalCase (e.g. notFound)
+    name: error class name (e.g. RouteNotFoundError)
+    message: human-readable message
+    details: arbitrary object with debugging details
+  example:
+    object: error
+    code: notFound
+    name: RouteNotFoundError
+    message: Route not found
+    details: {}
+job_error_categories:
+  description: Job failures carry a JobError with code (PascalCase), category, message,
+    and details, per the official client library types.
+  categories:
+  - client: errors caused by client actions (invalid inputs, job cancelled)
+  - server: platform-related failures (worker crash, timeout, API unavailable)
+  - website: known limitations of the automated website (unsupported feature, flow, layout)
+  source: https://github.com/automationcloud/client-javascript/blob/master/src/main/types.ts
+problems:
+- code: InputInvalid
+  category: client
+  title: Failed to create a job due to invalid input
+- code: JobCancelled
+  category: client
+  title: Job cancelled by client
+- code: InputTimeout
+  category: client
+  title: Input was not provided within 15 minutes
+- code: TdsTimeout
+  category: client
+  title: 3D Secure was not completed by the card holder
+- code: InputRejected
+  category: client
+  title: Replacement for rejected input was not provided within 15 minutes
+- code: PaymentRejected
+  category: client
+  title: Payment rejected due to a problem with the card
+- code: CardDetailsInvalid
+  category: client
+  title: Unable to process payment as card details are invalid
+- code: AddressInvalid
+  category: client
+  title: Invalid address provided
+- code: AccountDetailsInvalid
+  category: client
+  title: Cannot sign in as invalid account details provided
+- code: PaymentDetailsInvalid
+  category: client
+  title: Cannot submit or process the payment because the payment details are invalid
+- code: CardTypeNotSupported
+  category: client
+  title: Cannot submit or process the payment because the card type is not supported
+- code: UrlInvalid
+  category: client
+  title: Invalid url provided
+- code: UnsupportedWebsiteLanguage
+  category: client
+  title: The deeplink or url landed on a page in an unsupported language
+- code: FinalPriceNotFound
+  category: client
+  title: Final price provided does not match expectation
+- code: PanTokenInvalid
+  category: client
+  title: Invalid pan token provided
+- code: CookieInvalid
+  category: client
+  title: Invalid cookie provided
+- code: PriceRangeExceeded
+  category: client
+  title: Price range exceeded input specifications
+- code: AuthenticationError
+  category: client
+  title: The authentication attempt failed
+- code: PriceChangedAfterConsent
+  category: website
+  title: Price changed after final price consent
+- code: WebsiteValidationFailed
+  category: website
+  title: Website's validation rule doesn't allow the input data
+- code: SystemUnavailable
+  category: website
+  title: Website system is down or doesn't work at the moment
+- code: KnownLimitation
+  category: website
+  title: Cannot process due to known limitation
+- code: GenericWebsiteError
+  category: website
+  title: Website threw a general error during the automation process
+- code: UnableToContinueProcess
+  category: website
+  title: Process couldn't reach the final step; website finished the process early
+- code: SessionExpired
+  category: website
+  title: The website timed out the session
+- code: ServerError
+  category: server
+  title: Server error
+- code: JobTimeout
+  category: server
+  title: Job timed out an hour after job creation without reaching the final state
+- code: BotDetection
+  category: server
+  title: The automation could not continue because it was bot-detected

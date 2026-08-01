@@ -1,26 +1,121 @@
 aid: ubio-automation-cloud
 name: UBIO Automation Cloud
-description: UBIO Automation Cloud is a company surfaced as a portfolio company of techstars and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
+description: UBIO (ubio.ai, formerly ub.io) is a London-based, Techstars-backed web
+  automation company. Its Automation Cloud platform runs automation scripts as jobs
+  through a REST API, automating end-to-end website flows such as flight and hotel
+  booking, broadband signup, insurance quotes, and job applications. Developers create
+  jobs with inputs, receive outputs and lifecycle events, and handle deferred inputs
+  and 3-D Secure through official JavaScript/TypeScript client libraries, with the
+  ubio Automation Protocol defining typed input/output schemas for more than 50 automation
+  domains.
 url: https://raw.githubusercontent.com/api-evangelist/ubio-automation-cloud/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/4670990?v=4
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profile
+x-tier-reason: enriched-from-portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
+- Automation
+- Web Automation
+- RPA
+- Travel
+- Booking
+- Jobs
 - Company
-apis: []
+apis:
+- name: UBIO Automation Cloud API
+  description: REST API for running automation jobs on the Automation Cloud. Clients
+    create jobs against a service, supply initial and deferred inputs, poll job events,
+    retrieve outputs, handle 3-D Secure challenges, and cancel jobs. Authenticated
+    with an App Secret Key (HTTP basic) or OAuth2 client credentials issued by the
+    Automation Cloud Keycloak realm.
+  humanURL: https://github.com/automationcloud/client-javascript
+  baseURL: https://api.automationcloud.net
+  tags:
+  - Jobs
+  - Automation
+  - Web Automation
+  properties:
+  - type: APIReference
+    url: https://protocol.automationcloud.net/
+  - type: SDK
+    url: https://github.com/automationcloud/client-javascript
+  - type: ErrorCatalog
+    url: errors/ubio-automation-cloud-problem-types.yml
+- name: UBIO Vault API
+  description: Automation Cloud Vault API for exchanging sensitive payment card data
+    for opaque tokens before passing it to automation jobs. Clients obtain a one-time
+    password, then vault a PAN or arbitrary data object to receive a token that automation
+    scripts can consume without exposing the underlying card details.
+  humanURL: https://github.com/automationcloud/client-javascript
+  baseURL: https://vault.automationcloud.net
+  tags:
+  - Vault
+  - Payments
+  - Tokenization
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/ubio-automation-cloud-domain-security.yml
 - type: Website
   url: https://ubio.ai/
+- type: GitHubOrganization
+  url: https://github.com/ubio
+- type: PrivacyPolicy
+  url: https://ubio.ai/privacy-policy
+- type: TermsOfService
+  url: https://ubio.ai/terms
+- type: APIReference
+  url: https://protocol.automationcloud.net/
+- type: Packages
+  url: packages/ubio-automation-cloud-packages.yml
+- type: SDKs
+  url: packages/ubio-automation-cloud-packages.yml
+- type: WellKnown
+  url: well-known/ubio-automation-cloud-well-known.yml
+- type: OpenIDConnect
+  url: well-known/ubio-automation-cloud-openid-configuration.json
+- type: JSONSchema
+  url: json-schema/ubio-automation-cloud-protocol-schema.json
+- type: Authentication
+  url: authentication/ubio-automation-cloud-authentication.yml
+- type: ErrorCatalog
+  url: errors/ubio-automation-cloud-problem-types.yml
+- type: MCPServer
+  url: mcp/ubio-automation-cloud-mcp.yml
+- type: LLMsTxt
+  url: llms/ubio-automation-cloud-llms.txt
+- type: Conformance
+  url: conformance/ubio-automation-cloud-conformance.yml
+- type: Sandbox
+  url: sandbox/ubio-automation-cloud-sandbox.yml
+- type: Conventions
+  url: conventions/ubio-automation-cloud-conventions.yml
+- type: DataModel
+  url: data-model/ubio-automation-cloud-data-model.yml

@@ -1,0 +1,63 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/automationcloud/client-javascript/blob/master/src/main/types.ts
+entities:
+- name: Service
+  description: A published automation script surface, created in the Automation Cloud
+    dashboard; jobs are created against a service (serviceId UUID).
+- name: Job
+  description: A single run of an automation script. States - created, scheduled,
+    processing, awaitingInput, awaitingTds, pending, success, fail. Category - live
+    or test.
+- name: JobInput
+  description: Key-value data supplied to a job (camelCase keys); may be provided
+    at creation or deferred until the script requests it (awaitingInput).
+- name: JobOutput
+  description: Key-value data emitted by the automation script (camelCase keys).
+- name: JobEvent
+  description: Lifecycle event emitted by a job, polled via GET /jobs/{jobId}/events.
+- name: JobError
+  description: Failure descriptor with PascalCase code, category (client/server/website),
+    message, and details.
+- name: EndUser
+  description: The end user attached to a job, retrieved via GET /jobs/{jobId}/end-user.
+- name: Tds
+  description: 3-D Secure challenge object (id, url) surfaced when a job enters the
+    awaitingTds state.
+- name: Domain
+  description: Automation Protocol domain (e.g. FlightBooking, HotelBooking, BroadbandSignup)
+    defining typed inputs, outputs, and error codes for a category of automation;
+    53 domains published in the protocol schema.
+relationships:
+- from: Service
+  to: Job
+  kind: has_many
+  via: serviceId
+- from: Job
+  to: JobInput
+  kind: has_many
+  via: jobId
+- from: Job
+  to: JobOutput
+  kind: has_many
+  via: jobId
+- from: Job
+  to: JobEvent
+  kind: has_many
+  via: jobId
+- from: Job
+  to: JobError
+  kind: has_one
+  via: error
+- from: Job
+  to: EndUser
+  kind: has_one
+  via: jobId
+- from: Job
+  to: Tds
+  kind: has_one
+  via: activeTdsId
+- from: Service
+  to: Domain
+  kind: belongs_to
+  via: domain

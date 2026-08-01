@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: searched
+hosts:
+  - host: https://auth.automationcloud.net
+    documents:
+      - path: /auth/realms/automationcloud/.well-known/openid-configuration
+        status: 200
+        file: ubio-automation-cloud-openid-configuration.json
+        note: Keycloak OIDC discovery for the automationcloud realm (RFC 8414 / OIDC Discovery)
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://api.automationcloud.net
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: https://ubio.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /llms.txt
+        status: 404
+      - path: /robots.txt
+        status: 200

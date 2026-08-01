@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/automationcloud/client-javascript
+authentication:
+  style: App Secret Key as HTTP Basic username, or OAuth2 client credentials (Keycloak
+    realm automationcloud); short-lived Job Access Tokens for browser-side access
+    to a single job.
+  artifact: authentication/ubio-automation-cloud-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key header or parameter is documented in the official client
+    library or observed API surface.
+pagination:
+  style: none-documented
+  notes: The jobs API is resource/event oriented; the client library polls /jobs/{jobId}/events
+    rather than paginating collections.
+eventing:
+  style: polling
+  poll_interval_default_ms: 1000
+  endpoint: GET /jobs/{jobId}/events
+  notes: Job state synchronization is client-side polling (configurable pollInterval);
+    no public webhook surface is documented.
+retries:
+  supported: true
+  notes: The official client retries failed HTTP requests (requestRetryCount and
+    requestRetryDelay configuration options).
+naming:
+  inputs_outputs: Job input and output keys must be camelCase (key-value pairs with
+    arbitrary JSON data).
+error_envelope:
+  shape: object/code/name/message/details JSON envelope; job failures carry JobError
+    with PascalCase code and category client|server|website.
+  artifact: errors/ubio-automation-cloud-problem-types.yml
+versioning:
+  style: none-documented
+  notes: No API version appears in the base URL or documented headers.
+rate_limits:
+  documented: false
+sensitive_data:
+  style: vault-tokenization
+  notes: Payment card data is exchanged for pan tokens via the Vault API (vault.automationcloud.net,
+    POST /otp then POST /pan or POST /data) so raw PANs never pass through automation
+    jobs; 3-D Secure challenges surface via GET /3d-secure/{tdsId} and the awaitingTds
+    job state.

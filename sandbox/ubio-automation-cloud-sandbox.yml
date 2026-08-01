@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/automationcloud/client-javascript#creating-the-job
+modes:
+  description: Jobs are created with a category of live or test; the test category
+    is used to filter test jobs out of live traffic in the Automation Cloud dashboard.
+  values:
+  - live
+  - test
+  example: |
+    const job = await client.createJob({
+        category: 'test',
+        input: { ... },
+    });
+local_testing:
+  description: The @automationcloud/local-robot package runs automation scripts locally
+    against the same Robot API surface, allowing development and testing without
+    consuming Automation Cloud jobs.
+  package: https://www.npmjs.com/package/@automationcloud/local-robot
+notes: No hosted sandbox environment, magic test values, or test card numbers are
+  published (docs.automationcloud.net is offline); the published test surface is
+  the job test category and the local robot runner.

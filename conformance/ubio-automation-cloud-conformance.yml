@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: derived
+source: well-known/ubio-automation-cloud-openid-configuration.json
+standards:
+- id: oauth2
+  conforms: true
+  evidence: Client library authenticates via OAuth2 client credentials against the
+    Keycloak token endpoint at auth.automationcloud.net (realm automationcloud);
+    grant_types_supported includes client_credentials.
+- id: oidc
+  conforms: true
+  evidence: Keycloak OIDC discovery document published at /auth/realms/automationcloud/.well-known/openid-configuration
+    (saved in well-known/).
+- id: pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256 in the OIDC discovery
+    document.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: API errors use a custom JSON envelope (object/code/name/message/details),
+    not application/problem+json (observed live on api.automationcloud.net).
+- id: json-schema
+  conforms: true
+  evidence: The ubio Automation Protocol publishes JSON Schema definitions for all
+    automation domains at protocol.automationcloud.net/schema.json.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key mechanism documented in the client library or API
+    surface.
