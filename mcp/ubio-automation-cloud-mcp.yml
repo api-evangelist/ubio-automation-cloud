@@ -2,10 +2,9 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: https://github.com/automationcloud/client-javascript/blob/master/src/main/ac-api.ts
-notes: No official UBIO / Automation Cloud MCP server was found on npm, the GitHub
-  orgs (ubio, automationcloud), or the provider's sites. This candidate tool list
-  is derived from the REST operations used by the official JavaScript client library
-  (no OpenAPI is published; docs.automationcloud.net is offline).
+notes: No official UBIO / Automation Cloud MCP server was found on npm, the GitHub orgs (ubio, automationcloud),
+  or the provider's sites. This candidate tool list is derived from the REST operations used by the official
+  JavaScript client library (no OpenAPI is published; docs.automationcloud.net is offline).
 server:
   name: ubio-automation-cloud
   transport: http
@@ -40,3 +39,9 @@ tools:
 - name: get_tds
   description: Retrieve a 3-D Secure challenge object (GET /3d-secure/{tdsId})
   source_operation: GET /3d-secure/{tdsId}
+deployment:
+  mode: none
+  verified: derived
+  tools: 10
+  checked: '2026-08-12'
+  source: catalog MCP census
